@@ -1,20 +1,199 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Pizza App
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen class="ion-padding">
+  <ion-grid>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <!-- LABEL AND MY ORDER BUTTON-->
+    <ion-row>
+      <ion-col size="4">
+        <div>
+          <ion-img src="https://images.freeimages.com/images/large-previews/fe9/pizza-1319976.jpg" alt="pizza logo"></ion-img>
+        </div>
+      </ion-col>
+      
+      <ion-col class="ion-align-self-center" offset="3">
+        <div>
+          <ion-button>MY ORDER</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- QUANTITY LABEL-->
+    <ion-row class="lbl-row">
+      <ion-col size="4">
+        <ion-label color="primary" class="bold">Quantity: </ion-label>
+      </ion-col>
+      
+      <ion-col>
+        <ion-text class="bold">0</ion-text>
+      </ion-col>
+    </ion-row>
+
+    <!-- NUMBERS PAD-->
+    <ion-row>
+      <ion-col>
+        <ion-button color="dark" fill="outline" expand="block" class="num">
+          1
+        </ion-button>
+      </ion-col>
+      
+      <ion-col>
+        <ion-button color="dark" fill="outline" expand="block" class="num">
+          2
+        </ion-button>
+      </ion-col>
+      
+      <ion-col>
+        <ion-button color="dark" fill="outline" expand="block" class="num">
+          3
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col> 
+        <ion-button color="dark" fill="outline" expand="block" class="num">
+          4
+        </ion-button>
+      </ion-col>
+      
+      <ion-col>
+        <ion-button color="dark" fill="outline" expand="block" class="num">
+          5
+        </ion-button>
+      </ion-col>
+      
+      <ion-col>
+        <ion-button color="dark" fill="outline" expand="block" class="num">
+          6
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <ion-button color="dark" fill="outline" expand="block" class="num">
+          7
+        </ion-button>
+      </ion-col>
+      
+      <ion-col>
+        <ion-button color="dark" fill="outline" expand="block" class="num">
+          8
+        </ion-button>
+      </ion-col>
+      
+      <ion-col>
+        <ion-button color="dark" fill="outline" expand="block" class="num">
+          9
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <ion-button color="danger" expand="block">
+          RESET
+        </ion-button>
+      </ion-col>
+      
+      <ion-col>
+        <ion-button color="dark" fill="outline" expand="block" class="num">
+          0
+        </ion-button>
+      </ion-col>
+      
+      <ion-col>
+        <ion-button color="success" expand="block">
+          ADD
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <!-- TOPPING LABEL-->
+    <ion-row class="lbl-row">
+      <ion-col size="4">
+        <ion-label color="primary" strong="true" class="bold">Topping: </ion-label>
+      </ion-col>
+          
+      <ion-col>
+        <ion-text class="bold">None</ion-text>
+      </ion-col>
+
+      <!-- SIZE LABEL-->
+      <ion-col size="4">
+        <ion-label color="primary" strong="true" class="bold">Size: </ion-label>
+      </ion-col>
+          
+      <ion-col>
+        <ion-text class="bold">None</ion-text>
+      </ion-col>
+    </ion-row>
+
+    <!-- TOPPINGS LIST-->
+    <ion-row>
+      <ion-col size="6">
+        <ion-list>
+          <ion-radio-group value="pizzaToppings">
+            <ion-item>
+              <ion-label class="listLbl">Tomato</ion-label>
+              <ion-radio slot="end" value="tomato"></ion-radio>
+            </ion-item>       
+            
+            <ion-item>
+              <ion-label class="listLbl">Bellpepper</ion-label>
+              <ion-radio slot="end" value="bellpepper"></ion-radio>
+            </ion-item>       
+            
+            <ion-item>
+              <ion-label class="listLbl">Pepperoni</ion-label>
+              <ion-radio slot="end" value="pepperoni"></ion-radio>
+            </ion-item>
+      
+            <ion-item>
+              <ion-label class="listLbl">Mashrooms</ion-label>
+              <ion-radio slot="end" value="mashrooms"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-col>
+
+      <!-- SIZES LIST-->
+      <ion-col size="6">
+        <ion-list>
+          <ion-radio-group value="pizzaSize">
+            <ion-item>
+              <ion-label class="listLbl">Small</ion-label>
+              <ion-radio slot="end" value="small"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="listLbl">Medium</ion-label>
+              <ion-radio slot="end" value="medium"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label class="listLbl">Large</ion-label>
+              <ion-radio slot="end" value="large"></ion-radio>
+            </ion-item>
+      
+            <ion-item>
+              <ion-label class="listLbl">Party</ion-label>
+              <ion-radio slot="end" value="party"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>  
 </ion-content>
+
+
+
+
