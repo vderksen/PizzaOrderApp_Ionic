@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home.page';
+import { MenuPage } from '../menu/menu.page';
 
 const routes: Routes = [
   {
     path: '',
     component: HomePage,
+  },
+  {
+    path: 'menu',
+    component: MenuPage
   }
 ];
 
@@ -14,3 +19,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class HomePageRoutingModule {}
+

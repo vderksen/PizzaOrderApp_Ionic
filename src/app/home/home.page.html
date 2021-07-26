@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Pizza App
-    </ion-title>
+    <ion-title color="primary">Pizza App</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -19,7 +17,7 @@
       
       <ion-col class="ion-align-self-center" offset="3">
         <div>
-          <ion-button>MY ORDER</ion-button>
+          <ion-button [routerLink]="['menu']">MY ORDER</ion-button>
         </div>
       </ion-col>
     </ion-row>
@@ -31,26 +29,26 @@
       </ion-col>
       
       <ion-col>
-        <ion-text class="bold">0</ion-text>
+        <ion-text class="bold">{{quantity}}</ion-text>
       </ion-col>
     </ion-row>
 
     <!-- NUMBERS PAD-->
     <ion-row>
       <ion-col>
-        <ion-button color="dark" fill="outline" expand="block" class="num">
+        <ion-button color="dark" fill="outline" expand="block" class="num" (click)="setQuantity(1)">
           1
         </ion-button>
       </ion-col>
       
       <ion-col>
-        <ion-button color="dark" fill="outline" expand="block" class="num">
+        <ion-button color="dark" fill="outline" expand="block" class="num" (click)="setQuantity(2)">
           2
         </ion-button>
       </ion-col>
       
       <ion-col>
-        <ion-button color="dark" fill="outline" expand="block" class="num">
+        <ion-button color="dark" fill="outline" expand="block" class="num" (click)="setQuantity(3)">
           3
         </ion-button>
       </ion-col>
@@ -58,19 +56,19 @@
     
     <ion-row>
       <ion-col> 
-        <ion-button color="dark" fill="outline" expand="block" class="num">
+        <ion-button color="dark" fill="outline" expand="block" class="num" (click)="setQuantity(4)">
           4
         </ion-button>
       </ion-col>
       
       <ion-col>
-        <ion-button color="dark" fill="outline" expand="block" class="num">
+        <ion-button color="dark" fill="outline" expand="block" class="num" (click)="setQuantity(5)">
           5
         </ion-button>
       </ion-col>
       
       <ion-col>
-        <ion-button color="dark" fill="outline" expand="block" class="num">
+        <ion-button color="dark" fill="outline" expand="block" class="num" (click)="setQuantity(6)">
           6
         </ion-button>
       </ion-col>
@@ -78,19 +76,19 @@
     
     <ion-row>
       <ion-col>
-        <ion-button color="dark" fill="outline" expand="block" class="num">
+        <ion-button color="dark" fill="outline" expand="block" class="num" (click)="setQuantity(7)">
           7
         </ion-button>
       </ion-col>
       
       <ion-col>
-        <ion-button color="dark" fill="outline" expand="block" class="num">
+        <ion-button color="dark" fill="outline" expand="block" class="num" (click)="setQuantity(8)">
           8
         </ion-button>
       </ion-col>
       
       <ion-col>
-        <ion-button color="dark" fill="outline" expand="block" class="num">
+        <ion-button color="dark" fill="outline" expand="block" class="num" (click)="setQuantity(9)">
           9
         </ion-button>
       </ion-col>
@@ -98,96 +96,48 @@
     
     <ion-row>
       <ion-col>
-        <ion-button color="danger" expand="block">
+        <ion-button color="danger" expand="block" (click)="resetOrder()">
           RESET
         </ion-button>
       </ion-col>
       
       <ion-col>
-        <ion-button color="dark" fill="outline" expand="block" class="num">
+        <ion-button color="dark" fill="outline" expand="block" class="num" (click)="setQuantity(0)">
           0
         </ion-button>
       </ion-col>
       
       <ion-col>
-        <ion-button color="success" expand="block">
+        <ion-button color="success" expand="block" (click)="addOrder()">
           ADD
         </ion-button>
       </ion-col>
     </ion-row>
 
-    <!-- TOPPING LABEL-->
-    <ion-row class="lbl-row">
-      <ion-col size="4">
-        <ion-label color="primary" strong="true" class="bold">Topping: </ion-label>
-      </ion-col>
-          
-      <ion-col>
-        <ion-text class="bold">None</ion-text>
-      </ion-col>
-
-      <!-- SIZE LABEL-->
-      <ion-col size="4">
-        <ion-label color="primary" strong="true" class="bold">Size: </ion-label>
-      </ion-col>
-          
-      <ion-col>
-        <ion-text class="bold">None</ion-text>
-      </ion-col>
-    </ion-row>
-
     <!-- TOPPINGS LIST-->
-    <ion-row>
+    <ion-row class="lbl-row">
       <ion-col size="6">
+        <ion-label color="primary" strong="true" class="bold">Topping: </ion-label>
+        <ion-text class="bold">{{topping}}</ion-text>
         <ion-list>
-          <ion-radio-group value="pizzaToppings">
-            <ion-item>
-              <ion-label class="listLbl">Tomato</ion-label>
-              <ion-radio slot="end" value="tomato"></ion-radio>
-            </ion-item>       
-            
-            <ion-item>
-              <ion-label class="listLbl">Bellpepper</ion-label>
-              <ion-radio slot="end" value="bellpepper"></ion-radio>
-            </ion-item>       
-            
-            <ion-item>
-              <ion-label class="listLbl">Pepperoni</ion-label>
-              <ion-radio slot="end" value="pepperoni"></ion-radio>
-            </ion-item>
-      
-            <ion-item>
-              <ion-label class="listLbl">Mashrooms</ion-label>
-              <ion-radio slot="end" value="mashrooms"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
+          <ion-item *ngFor="let topping of pizzaToppings">
+            <ion-label (click)="selectTopping(topping)">
+              {{topping.name}}
+            </ion-label>
+          </ion-item>
         </ion-list>
       </ion-col>
 
       <!-- SIZES LIST-->
       <ion-col size="6">
+        <ion-label color="primary" strong="true" class="bold">Size: </ion-label>
+        <ion-text class="bold">{{size}}</ion-text>
         <ion-list>
-          <ion-radio-group value="pizzaSize">
-            <ion-item>
-              <ion-label class="listLbl">Small</ion-label>
-              <ion-radio slot="end" value="small"></ion-radio>
-            </ion-item>
-        
-            <ion-item>
-              <ion-label class="listLbl">Medium</ion-label>
-              <ion-radio slot="end" value="medium"></ion-radio>
-            </ion-item>
-        
-            <ion-item>
-              <ion-label class="listLbl">Large</ion-label>
-              <ion-radio slot="end" value="large"></ion-radio>
-            </ion-item>
-      
-            <ion-item>
-              <ion-label class="listLbl">Party</ion-label>
-              <ion-radio slot="end" value="party"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
+          <ion-item *ngFor="let size of pizzaSizes">
+            <ion-label (click)="selectSize(size)">
+              {{size.name}}
+            </ion-label>
+          </ion-item>
         </ion-list>
       </ion-col>
     </ion-row>

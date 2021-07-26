@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="primary">Transaction History</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid *ngIf="historyEmpty === true">
+    <ion-row>
+      <ion-col>
+        <ion-text id="centerLbl" color="danger">Orders history is empty</ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item *ngFor="let previousOrder of previousOrders">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-text class="font-weight-bold" color="danger">{{previousOrder.orderDate}}</ion-text>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>{{previousOrder.orderSum}}$</ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
